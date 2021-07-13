@@ -13,14 +13,6 @@ export class PainelComponent {
   public instrucao: String = 'Traduza a frase:'
   public respostaUsuario: String = ''
 
-  /*constructor() {
-    console.log(this.frases)
-  }*/
-
-  /*public atualizaResposta(event: Event): void {
-    console.log((<HTMLInputElement>event.target).value)
-  }*/
-
   public atualizaResposta(event: any): void {
     this.respostaUsuario = event.target.value
   }
