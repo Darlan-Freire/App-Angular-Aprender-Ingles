@@ -12,7 +12,6 @@ export class PainelComponent {
   public frases: Frase[] = frases_array //Array que contém frases ENG e PTBR
   public instrucao: String = 'Traduza a frase:'
   public respostaUsuario: String = ''
-
   public atualizaResposta(event: any): void {
     this.respostaUsuario = event.target.value
   }
