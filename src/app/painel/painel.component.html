@@ -2,11 +2,13 @@
   <div class="jumbotron">
     <div class="row">
       <div class="col-sm-6">
-        <app-progresso [progresso]="progresso"></app-progresso>
+        <app-progresso [progresso]="progresso"></app-progresso><!--Instância do componente progresso-->
+        <!--No lado esquerdo o componente filho chamado progresso, que possui o atributo [progresso] 
+          está recebendo = do componente pai chamado painel, o valor do atributo "progresso" no lado direito-->
       </div>
       <div class="col-sm-6">
         <div class="d-flex justify-content-end">
-          <app-tentativas></app-tentativas>
+          <app-tentativas></app-tentativas><!--Instância do componente tentativa-->
         </div>
       </div>
 
@@ -15,7 +17,8 @@
           <p>{{ instrucao }}</p>
           <p>{{ rodadaFrase.fraseEng }}</p>
           <div class="form-group">
-            <textarea [(ngModel)]="respostaUsuario" id='textarea' autofocus></textarea>
+            <textarea [(ngModel)]="respostaUsuario" [value]='respostaUsuario' id='textarea' autofocus> </textarea>
+            <!--[(ngModel)] -> Usado para capturar entrada do usuario. O valor na IU sempre sincroniza de volta com o atributo de domínio em sua classe-->
           </div>
         </div>
       </div>
@@ -27,7 +30,7 @@
             type="button" 
             class="btn btn-primary"
             (click) = 'verificarResposta()'
-            >Verificar</button>
+            >Verificar</button><!--botão que irá disparar a função 'verificarResposta()'-->
           </div>
         </div>
       </div>
