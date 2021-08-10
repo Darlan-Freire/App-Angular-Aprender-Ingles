@@ -17,8 +17,9 @@ export class PainelComponent {
   public instrucao: String = 'Traduza a frase:'
   public respostaUsuario: String = ''
   public rodada: number = 0
-  public rodadaFrase: Frase = new Frase()
+  public rodadaFrase: Frase = new Frase
   public progresso: number = 0
+  public tentativas_Coracoes_Global: number = 3
   public readonly configModal: ModalOptions =
   {
     class: 'modal-lg',
@@ -36,6 +37,7 @@ export class PainelComponent {
 
   constructor(private readonly modalService: BsModalService) {
     this.atualizaResposta()
+    //console.log(this.tentativas_Coracoes_Global)
     //this.exibirModalSucesso() //Mensagem Ganhou
     //this.exibirModalFalhou() //Mensagem Perdeu
   }
@@ -49,10 +51,18 @@ export class PainelComponent {
     if(this.rodadaFrase.frasePtBr == this.respostaUsuario.toLowerCase()){
       this.rodada++ //Troca pergunta da rodada
       this.progresso += (100 / this.frases.length) //Porcentagem do progresso
-      this.atualizaResposta() //Atualiza objeto rodadaFrase
-      this.tentativasComponent.trocaCoracoes(false)
+      if(this.rodada === this.frases.length){
+        //GANHOU, chegou até o final do array
+        this.exibirModalSucesso() //Mensagem Ganhou
+      } else {
+        this.atualizaResposta() //Atualiza objeto rodadaFrase
+      }
     } else {
-      this.tentativasComponent.trocaCoracoes(true) 
+      this.tentativas_Coracoes_Global--//Decrementa 1 tentativa de coracao
+      if(this.tentativas_Coracoes_Global === 0){
+        //Perdeu, zerou o número de tentativas coracoes
+        this.exibirModalFalhou() //Mensagem Perdeu
+      }
     }
   }
 
