@@ -37,9 +37,6 @@ export class PainelComponent {
 
   constructor(private readonly modalService: BsModalService) {
     this.atualizaResposta()
-    //console.log(this.tentativas_Coracoes_Global)
-    //this.exibirModalSucesso() //Mensagem Ganhou
-    //this.exibirModalFalhou() //Mensagem Perdeu
   }
   
   public atualizaResposta(): void {
