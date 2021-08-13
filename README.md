@@ -1,4 +1,4 @@
-# App1
+# App1 - Aprendendo Inglês 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
 
